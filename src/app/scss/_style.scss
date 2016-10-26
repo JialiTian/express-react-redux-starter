@@ -1,0 +1,748 @@
+html, body {
+  min-height: 100%;
+  -webkit-font-smoothing: $font-smoothing;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  word-break: break-word;
+}
+
+a, button, .btn-link {
+  outline: 0 !important;
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+input, textarea, select {
+  font-weight: 300;
+
+  &, &:focus {
+    box-shadow: none !important;
+  }
+}
+
+#food-show, #article-show, #education-show {
+  p, li, ol, ul {
+    // Font size according to mobile app design
+    font-size: rem-calc(16);
+    font-weight: 300;
+    color: $tertiary-color;
+    line-height: 1.6em;
+
+    b, strong {
+      font-weight: 700;
+    }
+  }
+}
+
+#main {
+  height: 100vh;
+  width: 100%;
+
+  section {
+    padding: $column-gutter 0;
+    width: 100%;
+
+    &.featured {
+      background: $alert-light;
+    }
+  }
+}
+
+hr.light {
+  border-color: rgba(200, 200, 200, 0.8);
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.relative {
+  position: relative;
+}
+
+.static {
+  position: static;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.ellipsis {
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.va-t {
+  vertical-align: top !important;
+}
+
+.va-m {
+  vertical-align: middle !important;
+}
+
+.va-b {
+  vertical-align: bottom !important;
+}
+
+.grayscale {
+  @include filter(grayscale(100%));
+
+  img {
+    @include opacity(0.8);
+  }
+}
+
+.table-block {
+  display: table;
+  position: static;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  table-layout: fixed;
+
+  &.large .table-cell {
+    padding: $column-gutter * 2;
+  }
+
+  &.medium .table-cell {
+    padding: $column-gutter;
+  }
+
+  &.small .table-cell {
+    padding: $column-gutter / 3;
+  }
+
+  & > .table-cell {
+    display: table-cell;
+    padding: $column-gutter / 2;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.fixed-center {
+  @include animation(none);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: table;
+
+  .fixed-middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.legend {
+  position: relative;
+  margin-bottom: 1rem;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid $silver;
+  }
+
+  span, strong {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    background: white;
+    padding: 8px 15px;
+    border: 1px solid $silver;
+    border-radius: 1000px;
+    z-index: 2;
+  }
+}
+
+.panel > h2 {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+.well {
+  background: white;
+  color: $jet;
+  padding: $column-gutter / 2;
+  border-radius: $global-radius;
+
+  &.large {
+    padding: $column-gutter * 3;
+  }
+
+  &.medium {
+    padding: $column-gutter * 2;
+  }
+
+  &.small {
+    padding: $column-gutter / 2;
+  }
+
+  &.overlay {
+    border: 2px solid white;
+    background: url("/appassets/img/background-overlay-alert.png");
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Top notification bar
+.alert-box.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  line-height: 30px;
+  font-size: rem-calc(26);
+}
+
+// Workout Progress Bar
+#global-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .button {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+#global-alert {
+  position: fixed;
+  top: $topbar-height;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+}
+
+#global-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: WhiteSmoke;
+  background: rgba(255, 255, 255, 0.8);
+  height: rem-calc(6.5);
+  z-index: 999;
+
+  .progress-completion {
+    @extend .transit;
+
+    background: $pink;
+    height: 100%;
+
+    &.circuit-2 {
+      background: $blue;
+    }
+
+    &.circuit-rehab {
+      background: $dark-blue;
+    }
+
+    &.circuit-cooldown {
+      background: $cooldown;
+    }
+
+    &.circuit-challenge {
+      background: $orange;
+    }
+  }
+}
+
+.progress-counter {
+  position: relative;
+
+  &.large {
+    .action {
+      margin-left: -35px;
+      width: 70px;
+
+      @extend .small-fontsize-30;
+
+      @extend .medium-fontsize-40;
+    }
+
+    .timer {
+      @extend .small-fontsize-70;
+
+      @extend .medium-fontsize-100;
+    }
+  }
+
+  &.medium {
+    min-height: 280px;
+
+    .action {
+      margin-left: -30px;
+      width: 60px;
+
+      @extend .small-fontsize-24;
+
+      @extend .medium-fontsize-35;
+    }
+
+    .timer {
+      @extend .small-fontsize-60;
+
+      @extend .medium-fontsize-80;
+    }
+  }
+
+  .action {
+    @extend .transit;
+
+    @extend .hover-scale;
+
+    position: absolute;
+    left: 50%;
+    color: white;
+    margin-left: -20px;
+    text-align: center;
+    width: 40px;
+    z-index: 5;
+
+    &.top {
+      top: 7%;
+    }
+
+    &.bottom {
+      bottom: 7%;
+    }
+  }
+
+  .timer {
+    @include middle;
+
+    @extend .small-fontsize-40;
+
+    margin-top: -2px;
+    font-family: $font-header;
+
+    .note {
+      @extend .small-fontsize-14;
+
+      @extend .medium-fontsize-18;
+
+      font-family: $body-font-family;
+      margin: rem-calc((-25) 0 25);
+    }
+  }
+}
+
+.progress.info .meter {
+  background: $blue;
+}
+
+// Angular Loading Bar
+#loading-bar {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+
+  @include transition(350ms linear all);
+
+  @include animation(none);
+
+  &.ng-enter, &.ng-leave.ng-leave-active {
+    @include opacity(0);
+  }
+
+  &.ng-enter.ng-enter-active, &.ng-leave {
+    @include opacity(1);
+  }
+
+  .bar {
+    @include transition(width 350ms);
+
+    position: fixed;
+    z-index: 10002;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    // same height as global progress bar
+    height: rem-calc(6.5);
+
+    // $pink invisible on pink header, e.g. same background as global progress bar
+    background: WhiteSmoke;
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+#loading-fa-spinner {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+  z-index: 10001;
+  background: rgba(210, 210, 210, 0.5);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.05);
+
+  @include inline-block;
+
+  width: auto;
+  padding: 1rem;
+  color: white;
+  line-height: 1;
+  border-radius: 1rem;
+
+  .fa {
+    margin-top: 2px;
+  }
+}
+
+svg.nc-icon, img.overlay-icon {
+  width: rem-calc(64);
+  height: rem-calc(64);
+
+  &.nc-icon-24 {
+    width: rem-calc(24);
+    height: rem-calc(24);
+  }
+
+  &.nc-icon-50 {
+    width: rem-calc(50);
+    height: rem-calc(50);
+  }
+
+  &.nc-icon-60 {
+    width: rem-calc(60);
+    height: rem-calc(60);
+  }
+
+  &.nc-icon-70 {
+    width: rem-calc(70);
+    height: rem-calc(70);
+  }
+
+  &.overlay-icon {
+    width: auto;
+  }
+}
+
+.accordion {
+  @include box-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
+
+  border: 1px solid $border-pink;
+  border-radius: $global-radius;
+  background: white;
+  overflow: hidden;
+
+  a.ng-binding, .button.expand, .form-group, .content > input, .hints {
+    @extend .transit;
+
+    position: relative;
+    background: white;
+    border-radius: 0;
+    text-align: left;
+    border: 0;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    padding: rem-calc(15 20) !important;
+    color: $blue !important;
+    font-family: $body-font-family;
+    font-size: rem-calc(16);
+    font-weight: bold;
+
+    .right, input, .input, .media-right {
+      font-size: rem-calc(16);
+      color: $iron;
+      font-weight: bold;
+      white-space: nowrap;
+      padding: 0;
+
+      .fa {
+        float: right;
+        font-size: 150%;
+        line-height: 28px;
+        margin: rem-calc(0 -13 0 2);
+      }
+    }
+
+    &.active {
+      background: $white !important;
+      z-index: 2;
+    }
+
+    &:hover {
+      background: #f2feff !important;
+    }
+
+    &.button.expand {
+      .fa.right {
+        position: absolute;
+        right: 1rem;
+        font-size: 140%;
+      }
+    }
+
+    &.hints {
+      font-size: 80%;
+      font-weight: normal;
+      text-align: center;
+      color: $tertiary-color !important;
+      background: $gray-lighter !important;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  a.link.ng-binding {
+    padding: 0 !important;
+    border: none;
+  }
+
+  .content {
+    @include box-shadow(0 15px 15px rgba(0, 0, 0, 0.05));
+
+    position: relative;
+    z-index: 1;
+    background: white;
+
+    .button.expand {
+      margin: 0;
+      margin-top: -1px;
+      padding-top: rem-calc(18) !important;
+      padding-bottom: rem-calc(18) !important;
+      background: rgba(0, 0, 0, 0.02) !important;
+      font-size: rem-calc(14) !important;
+      color: $oil !important;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05) !important;
+      }
+    }
+  }
+
+  .scrollable {
+    .active {
+      @include box-shadow(0 5px 20px rgba(0, 0, 0, 0.1));
+    }
+
+    .content {
+      max-height: 272px;
+      overflow-y: auto;
+      padding-bottom: 38px;
+    }
+  }
+
+  .hint-scroll {
+    display: block;
+    position: relative;
+    z-index: 3;
+    padding: rem-calc(6) 0;
+    height: rem-calc(38);
+    margin-top: rem-calc(-37);
+    font-size: rem-calc(14);
+    font-weight: bold;
+    color: #3dc3d0;
+    background: #f2feff;
+    border: 1px solid $gray-lighter;
+    border-top-color: #ddf3f5;
+    opacity: 0.95;
+    text-transform: uppercase;
+  }
+}
+
+.meals-block {
+  @include box-shadow(0 5px 40px rgba(0, 0, 0, 0.1));
+
+  ::selection {
+    background: white;
+  }
+
+  a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid $gray-lighter;
+    color: $blue;
+
+    &:hover i {
+      margin: 0;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+
+    h4 {
+      @extend .transit;
+
+      color: $blue;
+      font-size: 24px;
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+
+    p {
+      font-size: rem-calc(16);
+      font-weight: lighter;
+      letter-spacing: rem-calc(-0.5);
+    }
+
+    .ellipsis {
+      max-width: 55.6vw;
+      min-width: rem-calc(172);
+    }
+  }
+
+  li {
+    height: 80px;
+
+    &:first-child {
+      margin-top: rem-calc(-10);
+    }
+
+    &:last-child {
+      margin-bottom: rem-calc(-10);
+
+      a {
+        border: 0;
+      }
+    }
+  }
+}
+
+// ---------------
+// Media
+// ---------------
+
+@media (min-height: 720px) {
+  // Vertically centers element in a relative/fixed container
+  .middle {
+    @include middle;
+  }
+
+  #global-progress-bar {
+    height: 1rem;
+  }
+}
+
+@media (min-height: 480px) {
+  .middle-small {
+    @include middle;
+  }
+}
+
+@media #{$medium-up} and (min-height: 720px) {
+  // Centers longer content
+  .middle-medium-up-720 {
+    @include middle;
+  }
+}
+
+@media #{$medium-up} and (min-height: 480px) {
+  // Centers shorter content
+  .middle-medium-up-480 {
+    @include middle;
+  }
+}
+
+@media #{$medium-up} {
+  #main section {
+    padding: ($column-gutter * 1.5) 0;
+  }
+
+  .table-block {
+    &.large .table-cell {
+      padding: $column-gutter * 3;
+    }
+
+    &.medium .table-cell {
+      padding: $column-gutter * 2;
+    }
+
+    &.small .table-cell {
+      padding: $column-gutter / 2;
+    }
+
+    & > .table-cell {
+      padding: $column-gutter;
+    }
+
+    &.collaspe-medium > .table-cell {
+      display: block;
+      padding-top: $column-gutter;
+      padding-bottom: $column-gutter;
+      height: auto;
+    }
+  }
+
+  .well {
+    padding: $column-gutter;
+  }
+
+  svg.nc-icon, img.overlay-icon {
+    width: rem-calc(96);
+    height: rem-calc(96);
+
+    &.overlay-icon {
+      width: auto;
+    }
+  }
+
+  .accordion {
+    a.ng-binding, .button.expand, .form-group, .content > input, .hints {
+      font-size: rem-calc(18);
+      padding: rem-calc(20) !important;
+
+      .right, input, .input, .media-right {
+        font-size: rem-calc(18);
+      }
+    }
+  }
+
+  #global-progress-bar {
+    height: 1rem;
+  }
+
+  .meals-block {
+    a .ellipsis {
+      max-width: 27.6vw;
+    }
+  }
+
+  // Todo: make this a style on body
+  #food-show, #article-show, #education-show {
+    p, li, ol, ul {
+      // Font size according to web app design
+      font-size: rem-calc(20);
+    }
+  }
+}
+
+@media #{$large-up} {
+  .meals-block {
+    a .ellipsis {
+      max-width: 16.56rem;
+      min-width: rem-calc(245);
+    }
+  }
+}

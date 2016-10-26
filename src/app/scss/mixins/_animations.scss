@@ -1,0 +1,167 @@
+// Animation
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: "";
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+
+// Keyframes
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+.fade {
+  &.ng-hide {
+    opacity: 0;
+  }
+
+  &.ng-hide-remove,
+  &.ng-hide-add {
+    display: block !important;
+
+    @include transition(opacity 0.15s ease-in-out);
+  }
+}
+
+.fadeout {
+  @include transition(opacity 0.5s ease-in-out);
+
+  @include opacity(0);
+}
+
+.fadein {
+  @include transition(opacity 0.5s ease-in-out);
+
+  @include opacity(1);
+}
+
+.animate-show {
+  opacity: 1;
+
+  &.ng-hide-add, &.ng-hide-remove {
+    transition: all linear 2.5s;
+  }
+
+  &.ng-hide {
+    opacity: 0;
+  }
+}
+
+.transit {
+  @include transition(all 0.15s ease-in-out);
+}
+
+.hover-scale:hover {
+  @include transform(scale(1.05));
+}
+
+// Spinner
+@include keyframes(spin) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+
+// Water tracker
+@include keyframes(FloatingA) {
+  0%, 50%, 100% {
+    @include transform(translate(0, 0));
+  }
+
+  25% {
+    @include transform(translate(5px, -20px));
+  }
+
+  75% {
+    @include transform(translate(-3px, -15px));
+  }
+}
+
+
+@include keyframes(FloatingB) {
+  0%, 100% {
+    @include transform(translate(5px, -15px));
+  }
+
+  50% {
+    @include transform(translate(-3px, -20px));
+  }
+
+  25%, 75% {
+    @include transform(translate(0, 0));
+  }
+}
+
+
+// Bouncing arrow on workout page
+@include keyframes(bounce) {
+  0%, 20%, 50%, 80%, 100% {
+    @include transform(translateY(0));
+  }
+
+  40% {
+    @include transform(translateY(-20px));
+  }
+
+  60% {
+    @include transform(translateY(-15px));
+  }
+}
+
+
+.bounce {
+  @include animation(bounce 2s infinite);
+}
+
+// Page transitions
+@include keyframes(slideInFromRight) {
+  from {
+    @include transform(translateX(10%));
+
+    @include opacity(0);
+  }
+
+  to {
+    @include transform(translateX(0));
+
+    @include opacity(1);
+  }
+}
+
+
+.ng-enter {
+  @include animation(slideInFromRight 0.3s both ease-in);
+
+  z-index: 9999;
+}

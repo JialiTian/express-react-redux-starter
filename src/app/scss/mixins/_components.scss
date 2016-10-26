@@ -1,0 +1,187 @@
+// Border
+@each $name, $color in $color-map {
+  .border-#{$name} {
+    border: 1px solid $color !important;
+  }
+
+  .bg-#{$name} {
+    background: $color !important;
+  }
+
+  path {
+    &.#{$name} {
+      stroke: $color;
+    }
+  }
+
+  .badge-tag.#{$name} {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    padding: rem-calc(5 30);
+    border: 1px solid $color;
+    border-radius: 1000rem;
+    color: $color;
+    text-transform: uppercase;
+    font-size: rem-calc(12);
+    margin-bottom: rem-calc(15);
+
+    &:before, &:after {
+      position: absolute;
+      top: 50%;
+      margin-top: -1px;
+      border-top: 1px solid $color;
+      display: inline-block;
+      content: " ";
+      width: 80%;
+    }
+
+    &:before {
+      left: -80%;
+      margin-left: -3px;
+    }
+
+    &:after {
+      right: -80%;
+      margin-right: -3px;
+    }
+  }
+
+  .owl-#{$name} {
+    .owl-controls {
+      .owl-nav {
+        .owl-prev, .owl-next {
+          color: $color !important;
+          border-color: $color !important;
+        }
+      }
+
+      .owl-dots {
+        .owl-dot {
+          &:hover span {
+            opacity: 0.5;
+            background: $color !important;
+          }
+
+          &.active span {
+            border-color: $color !important;
+            background: $color !important;
+          }
+
+          span {
+            border-color: $color !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.box-shadow {
+  @include box-shadow(0 5px 40px rgba(0, 0, 0, 0.2));
+}
+
+.box-radius {
+  border-radius: 6px;
+}
+
+.alert-view {
+  @include background(rgba(0, 0, 0, 0.8));
+
+  @extend .fade;
+
+  display: block;
+  content: " ";
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .content {
+    @extend .middle-small;
+
+    background: white;
+    border-radius: $global-radius;
+    width: rem-calc(400) !important;
+    max-width: 80%;
+    padding: rem-calc(0 20 30 20);
+    text-align: center;
+
+    .icon {
+      margin: 0 auto;
+      margin-top: rem-calc(-40);
+      margin-bottom: rem-calc(20);
+      width: rem-calc(80);
+      height: rem-calc(80);
+      border-radius: 100%;
+      border: 4px solid white;
+      color: white;
+      line-height: 2.3;
+      font-size: rem-calc(30);
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.share-view {
+  @include background(rgba(0, 0, 0, 0.8));
+
+  @extend .fade;
+
+  display: block;
+  content: " ";
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .content {
+    @extend .middle-small;
+
+    background: white url("/appassets/img/background-pattern-white.png") top center repeat;
+    border-radius: $global-radius;
+    width: rem-calc(600) !important;
+    max-width: 70%;
+    padding: rem-calc(30 30 30 30);
+    text-align: center;
+
+    img {
+      max-width: 150px;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.resistance {
+    h1 {
+      color: $pink;
+    }
+  }
+
+  &.challenge {
+    h1 {
+      color: $orange;
+    }
+  }
+
+  &.cardio {
+    h1 {
+      color: $green;
+    }
+  }
+
+  &.recovery {
+    h1 {
+      color: $dark-blue;
+    }
+  }
+}

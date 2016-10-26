@@ -1,0 +1,167 @@
+body.devise {
+  background: url("/appassets/img/background-consumer-landing.jpg") center;
+  background-size: cover;
+
+  &.settings {
+    background: white url("/appassets/img/background-pattern-white.png") top center repeat;
+
+    #main {
+      margin-top: -$topbar-height;
+      padding-top: $topbar-height;
+    }
+
+    .img-profile {
+      @include box-shadow(0 5px 35px rgba(0, 0, 0, 0.2));
+
+      border: 3px solid white;
+      width: 120px;
+      height: 120px;
+      background: white;
+    }
+
+    .label-profile-image {
+      @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.2));
+
+      position: absolute;
+      bottom: -3px;
+      right: -3px;
+      width: 36px;
+      height: 36px;
+      border-radius: 100%;
+      line-height: 42px;
+      text-align: center;
+      overflow: hidden;
+      margin: 0;
+
+      input {
+        margin-left: 999rem;
+        width: 0;
+        height: 0;
+      }
+    }
+
+    .accordion {
+      @include border-radius(rem-calc(5));
+
+      margin: 0 (-$column-gutter);
+      overflow: hidden;
+
+      .text-pink {
+        color: $soft-red;
+      }
+
+      .form-group {
+        &.header {
+          background: $blue !important;
+
+          .media-left, .media-right {
+            width: auto;
+            min-width: 70px;
+            word-break: normal;
+            color: white !important;
+            font-size: rem-calc(18);
+          }
+        }
+
+        .media-left {
+          width: 60%;
+          min-width: rem-calc(190);
+        }
+
+        input, .input {
+          background: none;
+          box-shadow: none;
+          padding: 0;
+          margin-bottom: 0;
+          border: none;
+          text-align: right;
+          height: auto;
+
+          &:focus {
+            color: black !important;
+          }
+        }
+      }
+
+      .content {
+        > input {
+          height: 70px;
+          font-weight: normal;
+
+          &:focus {
+            font-weight: bold;
+            color: black !important;
+          }
+        }
+
+        .hollow {
+          background: $white;
+        }
+      }
+    }
+
+    footer.sticky {
+      @include box-shadow(0 0 20px rgba(0, 0, 0, 0.1));
+
+      background: rgba(255, 255, 255, 0.8);
+      padding: rem-calc(10 0 8 0);
+
+      .button {
+        @extend .small-fontsize-20;
+
+        @extend .medium-fontsize-24;
+
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  section#landing {
+    .button.facebook {
+      overflow: hidden;
+
+      .split {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2);
+        width: 50px;
+        height: 100%;
+      }
+    }
+
+    .underlined {
+      position: relative;
+
+      img {
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+  body.devise {
+    &.settings {
+      .img-profile {
+        width: 150px;
+        height: 150px;
+      }
+
+      .label-profile-image {
+        width: 42px;
+        height: 42px;
+        line-height: 50px;
+      }
+    }
+
+    section#landing {
+      .underlined {
+        text-decoration: none;
+      }
+    }
+  }
+}

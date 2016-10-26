@@ -1,0 +1,85 @@
+body.meals {
+  .header-wrap {
+    background-color: $primary-color;
+  }
+
+  #meal-show {
+    text-align: center;
+
+    &:after {
+      display: block;
+      content: " ";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto350px;
+      background: #f3f8fb;
+    }
+
+    .img-featured {
+      border: 1px solid white;
+
+      @include box-shadow(0 5px 25px rgba(0, 0, 0, 0.05));
+    }
+
+    .list-ingredients {
+      li {
+        font-size: rem-calc(16);
+      }
+
+      .owl-controls {
+        .owl-nav {
+          margin: 0;
+        }
+
+        .owl-prev, .owl-next {
+          @include middle;
+
+          width: auto;
+          color: $blue;
+          font-size: 150%;
+          margin: (-1px) 0 0;
+          padding: 8px 12px;
+
+          &.owl-prev {
+            @include background(linear-gradient(90deg, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0.1) 100%));
+
+            left: -3px;
+            right: auto;
+          }
+
+          &.owl-next {
+            @include background(linear-gradient(270deg, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0.1) 100%));
+
+            right: -35px;
+            left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+  body.meals {
+    #meal-show {
+      text-align: left;
+
+      &:after {
+        height: 50vw;
+      }
+    }
+  }
+}
+
+@media #{$large-up} {
+  body.meals {
+    #meal-show {
+      &:after {
+        height: 600px;
+      }
+    }
+  }
+}

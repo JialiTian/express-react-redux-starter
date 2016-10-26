@@ -10,7 +10,7 @@ import About from './components/about/About';
 
 import reducers from './reducers';
 
-import './components/bundle.scss';
+import './scss/app.scss';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 const store = createStoreWithMiddleware(reducers);

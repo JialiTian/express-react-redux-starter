@@ -1,0 +1,13 @@
+section#workout-cooldown-start {
+  .timer-up {
+    position: relative;
+
+    .absolute {
+      @include middle;
+    }
+
+    img {
+      @include animation(spin 1s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94));
+    }
+  }
+}

@@ -1,0 +1,38 @@
+footer.sticky {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 101;
+  width: 100%;
+  padding: rem-calc(40) 0 rem-calc(15);
+
+  .button {
+    margin-bottom: rem-calc(10);
+  }
+
+  > .row {
+    margin: 0 auto;
+    max-width: 67.5rem;
+  }
+}
+
+@media #{$medium-up} {
+  footer.sticky {
+    padding-top: rem-calc(70);
+
+    .button {
+      font-size: $button-font-lrg;
+      margin-bottom: 1rem;
+    }
+
+    .columns {
+      &:first-of-type {
+        padding-right: 10px;
+      }
+
+      &:last-of-type {
+        padding-left: 10px;
+      }
+    }
+  }
+}

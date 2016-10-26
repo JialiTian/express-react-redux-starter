@@ -1,0 +1,230 @@
+// https://github.com/HubSpot/offline/tree/master/sass
+// mixins
+@mixin offline-content {
+  .offline-ui {
+    .offline-ui-retry {
+      &:before {
+        content: $retryButton;
+      }
+    }
+
+    &.offline-ui-up {
+      .offline-ui-content:before {
+        content: $upComputer;
+
+        @media (max-width: 1024px) {
+          content: $upDevice;
+        }
+
+        @media (max-width: 568px) {
+          content: $upDeviceSmall;
+        }
+      }
+    }
+
+    &.offline-ui-down {
+      .offline-ui-content:before {
+        content: $downComputer;
+
+        @media (max-width: 1024px) {
+          content: $downDevice;
+        }
+
+        @media (max-width: 568px) {
+          content: $downDeviceSmall;
+        }
+      }
+
+      &.offline-ui-connecting, &.offline-ui-connecting-2s {
+        .offline-ui-content:before {
+          content: $connecting;
+        }
+      }
+
+      &.offline-ui-waiting {
+        .offline-ui-content {
+          &[data-retry-in-unit="second"] {
+            &:before {
+              content: $retryingSecondBeforeValuePluralComputer attr(data-retry-in-value) $retryingSecondAfterValuePluralComputer;
+
+              @media (max-width: 568px) {
+                content: $retryingSecondBeforeValuePluralDeviceSmall attr(data-retry-in-value) $retryingSecondAfterValuePluralDeviceSmall;
+              }
+            }
+
+            &[data-retry-in-value="1"] {
+              &:before {
+                content: $retryingSecondBeforeValueSingularComputer attr(data-retry-in-value) $retryingSecondAfterValueSingularComputer;
+
+                @media (max-width: 568px) {
+                  content: $retryingSecondBeforeValueSingularDeviceSmall attr(data-retry-in-value) $retryingSecondAfterValueSingularDeviceSmall;
+                }
+              }
+            }
+          }
+
+          &[data-retry-in-unit="minute"] {
+            &:before {
+              content: $retryingMinuteBeforeValuePluralComputer attr(data-retry-in-value) $retryingMinuteAfterValuePluralComputer;
+
+              @media (max-width: 568px) {
+                content: $retryingMinuteBeforeValuePluralDeviceSmall attr(data-retry-in-value) $retryingMinuteAfterValuePluralDeviceSmall;
+              }
+            }
+
+            &[data-retry-in-value="1"] {
+              &:before {
+                content: $retryingMinuteBeforeValueSingularComputer attr(data-retry-in-value) $retryingMinuteAfterValueSingularComputer;
+
+                @media (max-width: 568px) {
+                  content: $retryingMinuteBeforeValueSingularDeviceSmall attr(data-retry-in-value) $retryingMinuteAfterValueSingularDeviceSmall;
+                }
+              }
+            }
+          }
+
+          &[data-retry-in-unit="hour"] {
+            &:before {
+              content: $retryingHourBeforeValuePluralComputer attr(data-retry-in-value) $retryingHourAfterValuePluralComputer;
+
+              @media (max-width: 568px) {
+                content: $retryingHourBeforeValuePluralDeviceSmall attr(data-retry-in-value) $retryingHourAfterValuePluralDeviceSmall;
+              }
+            }
+
+            &[data-retry-in-value="1"] {
+              &:before {
+                content: $retryingHourBeforeValueSingularComputer attr(data-retry-in-value) $retryingHourAfterValueSingularComputer;
+
+                @media (max-width: 568px) {
+                  content: $retryingHourBeforeValueSingularDeviceSmall attr(data-retry-in-value) $retryingHourAfterValueSingularDeviceSmall;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.offline-ui-reconnect-failed-2s {
+        &.offline-ui-waiting .offline-ui-retry {
+          display: none;
+        }
+
+        .offline-ui-content:before {
+          content: $reconnectFailed;
+        }
+      }
+    }
+  }
+}
+
+// translations
+// en
+$upComputer: "Your computer is connected to the internet.";
+$upDevice: "Your device is connected to the internet.";
+$upDeviceSmall: "Your device is connected.";
+
+$downComputer: "Your computer lost its internet connection.";
+$downDevice: "Your device lost its internet connection.";
+$downDeviceSmall: "Your device isn't connected.";
+
+$connecting: "Attempting to reconnect...";
+
+$retryButton: "Reconnect";
+
+$reconnectFailed: "Connection attempt failed.";
+
+$retryingSecondBeforeValueSingularComputer: "Connection lost. Reconnecting in ";
+$retryingSecondBeforeValuePluralComputer: $retryingSecondBeforeValueSingularComputer;
+
+$retryingMinuteBeforeValueSingularComputer: $retryingSecondBeforeValueSingularComputer;
+$retryingMinuteBeforeValuePluralComputer: $retryingSecondBeforeValueSingularComputer;
+
+$retryingHourBeforeValueSingularComputer: $retryingSecondBeforeValueSingularComputer;
+$retryingHourBeforeValuePluralComputer: $retryingSecondBeforeValueSingularComputer;
+
+$retryingSecondBeforeValueSingularDeviceSmall: "Reconnecting in ";
+$retryingSecondBeforeValuePluralDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+
+$retryingMinuteBeforeValueSingularDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+$retryingMinuteBeforeValuePluralDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+
+$retryingHourBeforeValueSingularDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+$retryingHourBeforeValuePluralDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+
+$retryingSecondAfterValueSingularComputer: " second...";
+$retryingSecondAfterValuePluralComputer: " seconds...";
+
+$retryingSecondAfterValueSingularDeviceSmall: "s...";
+$retryingSecondAfterValuePluralDeviceSmall: $retryingSecondAfterValueSingularDeviceSmall;
+
+$retryingMinuteAfterValueSingularComputer: " minute...";
+$retryingMinuteAfterValuePluralComputer: " minutes...";
+
+$retryingMinuteAfterValueSingularDeviceSmall: "m...";
+$retryingMinuteAfterValuePluralDeviceSmall: $retryingMinuteAfterValueSingularDeviceSmall;
+
+$retryingHourAfterValueSingularComputer: " hour...";
+$retryingHourAfterValuePluralComputer: " hours...";
+
+$retryingHourAfterValueSingularDeviceSmall: "h...";
+$retryingHourAfterValuePluralDeviceSmall: $retryingHourAfterValueSingularDeviceSmall;
+
+:lang(en) {
+  @include offline-content;
+}
+
+// de
+$upComputer: "Dein Computer ist mit dem Internet verbunden.";
+$upDevice: "Deing Gerät ist mit dem Internet verbunden.";
+$upDeviceSmall: "Dein Gerät ist online.";
+
+$downComputer: "Dein Computer wurde vom Internet getrennt.";
+$downDevice: "Dein Gerät wurde vom Internet getrennt.";
+$downDeviceSmall: "Keine Internetverbindung.";
+
+$connecting: "Versuche Verbindung wiederherzustellen...";
+
+$retryButton: "Verbinden";
+
+$reconnectFailed: "Verbindung Fehlgeschlagen.";
+
+$retryingSecondBeforeValueSingularComputer: "Keine Verbindung. Verbinde nochmal in ";
+$retryingSecondBeforeValuePluralComputer: $retryingSecondBeforeValueSingularComputer;
+
+$retryingMinuteBeforeValueSingularComputer: $retryingSecondBeforeValueSingularComputer;
+$retryingMinuteBeforeValuePluralComputer: $retryingSecondBeforeValueSingularComputer;
+
+$retryingHourBeforeValueSingularComputer: $retryingSecondBeforeValueSingularComputer;
+$retryingHourBeforeValuePluralComputer: $retryingSecondBeforeValueSingularComputer;
+
+$retryingSecondBeforeValueSingularDeviceSmall: "Verbinde in ";
+$retryingSecondBeforeValuePluralDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+
+$retryingMinuteBeforeValueSingularDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+$retryingMinuteBeforeValuePluralDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+
+$retryingHourBeforeValueSingularDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+$retryingHourBeforeValuePluralDeviceSmall: $retryingSecondBeforeValueSingularDeviceSmall;
+
+$retryingSecondAfterValueSingularComputer: " Sekunde...";
+$retryingSecondAfterValuePluralComputer: " Sekunden...";
+
+$retryingSecondAfterValueSingularDeviceSmall: "s...";
+$retryingSecondAfterValuePluralDeviceSmall: $retryingSecondAfterValueSingularDeviceSmall;
+
+$retryingMinuteAfterValueSingularComputer: " Minute...";
+$retryingMinuteAfterValuePluralComputer: " Minuten...";
+
+$retryingMinuteAfterValueSingularDeviceSmall: "m...";
+$retryingMinuteAfterValuePluralDeviceSmall: $retryingMinuteAfterValueSingularDeviceSmall;
+
+$retryingHourAfterValueSingularComputer: " Stunde...";
+$retryingHourAfterValuePluralComputer: " Stunden...";
+
+$retryingHourAfterValueSingularDeviceSmall: "h...";
+$retryingHourAfterValuePluralDeviceSmall: $retryingHourAfterValueSingularDeviceSmall;
+
+:lang(de) {
+  @include offline-content;
+}

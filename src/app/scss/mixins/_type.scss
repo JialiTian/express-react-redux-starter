@@ -1,0 +1,100 @@
+// TODO: REMOVE DUPLICATED NAMES COMPARED TO FOUNDATION
+$font-header: "bebas_neuebold", sans-serif;
+$font-header-regular: "bebas_neue_regular", sans-serif;
+$font-header-book: "bebas_neuebook", sans-serif;
+$font-weight-bold: bold;
+$body-font-family: "Open Sans", sans-serif;
+
+//Font Styles
+.caps {
+  text-transform: uppercase;
+}
+
+.font-condensed {
+  line-height: 1.1 !important;
+}
+
+.text-spaned {
+  letter-spacing: 2px;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+// Font Weights
+.font-thin {
+  font-weight: 100 !important;
+}
+
+.font-light {
+  font-weight: 300 !important;
+}
+
+.font-normal {
+  font-weight: normal !important;
+}
+
+.font-bold {
+  font-weight: bold !important;
+}
+
+// Font Family
+.font-header {
+  font-family: $font-header !important;
+}
+
+.font-header-book {
+  font-family: $font-header-book !important;
+}
+
+.font-header-regular {
+  font-family: $font-header-regular !important;
+}
+
+.font-body {
+  font-family: $body-font-family !important;
+}
+
+// Font Colors for buttons
+@each $name, $color in $color-map {
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-alert {
+  color: $alert-color !important;
+}
+
+.text-cardio, .text-hiit, .text-liss, .text-success {
+  color: $green !important;
+}
+
+.text-rehabilitation, .text-recovery {
+  color: $dark-blue !important;
+}
+
+.text-challenge {
+  color: $orange !important;
+}
+
+.text-resistance, .text-warning, .text-hiit.onwork {
+  color: $pink !important;
+}
+
+.text-info {
+  color: $info-color !important;
+}
+
+.text-info-light {
+  color: #9be0e8 !important;
+}
+
+.text-muted {
+  color: $gray-light !important;
+}

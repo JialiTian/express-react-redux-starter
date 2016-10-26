@@ -1,0 +1,22 @@
+body.workout-contents {
+  section#workout-challenge {
+    background: #faa19d url("/appassets/img/background-workout-challenge.png") top center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  section#workout-challenge-start {
+    .timer-up {
+      position: relative;
+
+      .absolute {
+        @include middle;
+      }
+
+      img {
+        @include animation(spin 1s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94));
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+.workout-description {
+  .circuit-title {
+    width: 50%;
+  }
+
+  .tabs-content {
+    margin-bottom: 0;
+  }
+
+  &.resistance {
+    h2 {
+      color: $pink;
+    }
+
+    p {
+      color: $pink !important;
+    }
+
+    dl.tabs {
+      text-align: center;
+
+      dd {
+        display: inline-block;
+        margin: 0;
+        border-bottom: 2px solid $iron;
+        float: none;
+
+        &.active {
+          border-color: $pink;
+
+          a {
+            color: $pink;
+            border-color: $pink;
+          }
+        }
+
+        a {
+          font-size: 30px;
+          color: #d6d8da;
+          padding: 1rem;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+
+    .owl-controls {
+      .owl-dots .owl-dot.active span {
+        border-color: $pink;
+        background-color: $pink;
+      }
+    }
+  }
+
+  &.resistance.circuit-2 {
+    h2 {
+      color: $blue;
+    }
+
+    p {
+      color: $blue !important;
+    }
+
+    dl.tabs {
+      text-align: center;
+
+      dd {
+        display: inline-block;
+        margin: 0;
+        border-bottom: 2px solid $iron;
+        float: none;
+
+        &.active {
+          border-color: $blue;
+
+          a {
+            color: $blue;
+            border-color: $blue;
+          }
+        }
+
+        a {
+          font-size: 30px;
+          color: #d6d8da;
+          padding: 1rem;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+
+    .owl-controls {
+      .owl-dots .owl-dot.active span {
+        border-color: $blue;
+        background-color: $blue;
+      }
+    }
+  }
+
+  &.challenge {
+    h2 {
+      color: $orange;
+    }
+
+    p {
+      color: $orange;
+    }
+
+    dl.tabs {
+      text-align: center;
+
+      dd {
+        display: inline-block;
+        margin: 0;
+        border-bottom: 2px solid $iron;
+        float: none;
+
+        &.active {
+          border-color: $orange;
+
+          a {
+            color: $orange;
+            border-color: $orange;
+          }
+        }
+
+        a {
+          font-size: 30px;
+          color: #d6d8da;
+          padding: 1rem;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+
+    .owl-controls {
+      .owl-dots .owl-dot.active span {
+        border-color: $orange;
+        background-color: $orange;
+      }
+    }
+
+    .button.pink,
+    .button.pink:hover {
+      @extend .button.orange;
+    }
+  }
+
+  &.rehabilitation {
+    h2 {
+      color: $dark-blue;
+    }
+
+    p {
+      color: $dark-blue;
+    }
+
+    dl.tabs {
+      text-align: center;
+
+      dd {
+        display: inline-block;
+        margin: 0;
+        border-bottom: 2px solid $iron;
+        float: none;
+
+        &.active {
+          border-color: $dark-blue;
+
+          a {
+            color: $dark-blue;
+            border-color: $dark-blue;
+          }
+        }
+
+        a {
+          font-size: 30px;
+          color: #d6d8da;
+          padding: 1rem;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+
+    .owl-controls {
+      .owl-dots .owl-dot.active span {
+        border-color: $dark-blue;
+        background-color: $dark-blue;
+      }
+    }
+
+    .button.pink,
+    .button.pink:hover {
+      @extend .button.dark-blue;
+    }
+  }
+
+  &.cooldown {
+    h2 {
+      color: $cooldown;
+    }
+
+    p {
+      color: $cooldown;
+    }
+
+    dl.tabs {
+      text-align: center;
+
+      dd {
+        display: inline-block;
+        margin: 0;
+        border-bottom: 2px solid $iron;
+        float: none;
+
+        &.active {
+          border-color: $cooldown;
+
+          a {
+            color: $cooldown;
+            border-color: $cooldown;
+          }
+        }
+
+        a {
+          font-size: 30px;
+          color: #d6d8da;
+          padding: 1rem;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+
+    .owl-controls {
+      .owl-dots .owl-dot.active span {
+        border-color: $cooldown;
+        background-color: $cooldown;
+      }
+    }
+
+    .button.pink,
+    .button.pink:hover {
+      @extend .button.cooldown;
+    }
+  }
+}

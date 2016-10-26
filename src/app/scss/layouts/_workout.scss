@@ -1,0 +1,345 @@
+body.workout-contents {
+  text-align: center;
+
+  #main, #main .ng-enter {
+    @include animation(none);
+  }
+
+  .overlay-custom:not(.overlay-tour) {
+    .owl-carousel {
+      img {
+        @include inline-block;
+
+        margin: rem-calc(20) 0;
+        max-height: rem-calc(200);
+      }
+    }
+  }
+
+  // Workout Overview
+  section#workout-start {
+    padding: 0;
+    height: 100vh;
+    position: relative;
+
+    .legend {
+      margin-bottom: 0px;
+    }
+
+    hr {
+      margin: 10px 0;
+    }
+
+    .media {
+      .font-header {
+        margin-bottom: -6px;
+        line-height: 1;
+
+        &.ellipsis {
+          max-width: 61.6vw;
+          min-width: rem-calc(212);
+        }
+      }
+
+      .text-pink-light {
+        font-weight: 600;
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+
+      .timer-up {
+        position: relative;
+
+        .absolute {
+          @include middle;
+        }
+
+        img {
+          @include animation(spin 1s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94));
+
+          max-height: none;
+        }
+      }
+    }
+  }
+
+  // Equipment Checklist
+  section.workout-checklist {
+    background: #fea09b url("/appassets/img/background-overlay-custom-pink.png") top center no-repeat;
+    background-size: cover;
+    color: white;
+    padding: $column-gutter 0;
+
+    .arrow.bounce {
+      position: relative;
+      left: 50%;
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+      background-size: contain;
+      cursor: pointer;
+      margin-bottom: 2.5vh;
+      margin-left: -20px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .help-tour {
+      @extend .text-white;
+
+      @extend .small-opacity-50;
+
+      @extend .font-body;
+
+      @extend .caps;
+
+      display: block;
+      font-weight: bold;
+      padding: 0 20%;
+    }
+
+    #checklist {
+      @include box-shadow(0 10px 30px rgba(0, 0, 0, 0.05));
+
+      color: $blue;
+      margin-bottom: rem-calc(26);
+    }
+  }
+
+  .rehab-image {
+    max-height: 36vh;
+  }
+}
+
+body.cooldown {
+  #main {
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .exercise-alternate {
+    .columns {
+      padding: 0 rem-calc(5);
+    }
+  }
+
+  img {
+    max-height: 42vh;
+  }
+
+  section#workout-complete {
+    padding: 0;
+    height: 100vh;
+
+    img {
+      width: 18vh;
+      height: auto;
+    }
+
+    p.font-condensed {
+      .block {
+        font-size: 3vh !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .text-muted {
+      margin-bottom: 0;
+    }
+
+    .button.large {
+      padding: 2vh 0;
+    }
+
+    textarea {
+      margin-bottom: 0 !important;
+      line-height: 1.3;
+    }
+  }
+}
+
+.exercise-carousel {
+  .exercises-list {
+    overflow-y: auto;
+    height: 45vh;
+  }
+
+  .owl-item {
+    .img-hero {
+      height: 45vh;
+
+      img {
+        @include middle;
+
+        max-width: 100%;
+        max-height: 40vh;
+        width: auto;
+        height: auto;
+      }
+
+      a {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    .img-thumb {
+      max-height: 10vh;
+      max-width: 200px;
+      margin-right: 15px;
+    }
+  }
+}
+
+@media #{$small-only} {
+  // Target mobiles
+  .button-bar-sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    z-index: 101;
+
+    .button {
+      @include border-radius(0);
+
+      margin-bottom: 0;
+      background: rgba(51, 51, 51, 0.95);
+    }
+
+    &.white {
+      .button {
+        background: rgba(255, 255, 255, 0.95);
+      }
+    }
+  }
+
+  body.workout-contents {
+    .overlay-tour {
+      .owl-carousel {
+        .item [class*='table-block'] {
+          padding-bottom: rem-calc(220);
+
+          .iphone-mockup {
+            bottom: rem-calc(-250);
+          }
+        }
+
+        .owl-controls .owl-nav {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .exercise-carousel {
+    .owl-item {
+      float: none !important;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  body.workout-contents {
+    .overlay-custom:not(.overlay-tour) {
+      .button.sticky {
+        position: inherit;
+        bottom: inherit;
+        left: inherit;
+        right: inherit;
+        width: 100%;
+      }
+    }
+
+    .button-bar-sticky {
+      .button {
+        margin-bottom: rem-calc(30);
+      }
+    }
+
+    section#workout-start {
+      .media {
+        .font-header {
+          &.ellipsis {
+            max-width: 38.6vw;
+            min-width: rem-calc(336);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$large-up} {
+  body.workout-contents {
+    section#workout-start {
+      .media {
+        .font-header {
+          &.ellipsis {
+            max-width: 34.6vw;
+            min-width: rem-calc(336);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-height: 480px) and (max-height: 719px) {
+  body.workout-contents {
+    .overlay-custom:not(.overlay-tour) {
+      .owl-carousel {
+        img {
+          margin: 4vh 0;
+          max-height: 26vh;
+        }
+
+        p {
+          overflow: scroll;
+          max-height: 34vh;
+          white-space: pre-line;
+        }
+      }
+
+      .button.sticky {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto 4.2vh;
+        width: 68%;
+      }
+
+      .gradient {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3rem;
+
+        @include background-image(linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1)));
+      }
+    }
+
+    section#workout-start {
+      h2 {
+        margin: 2vh 0 4vh !important;
+      }
+
+      hr {
+        margin: 1vh 0 !important;
+      }
+
+      .legend {
+        margin-bottom: 1vh !important;
+
+        strong {
+          padding-top: 0.3vh;
+          padding-bottom: 0.3vh;
+        }
+      }
+    }
+  }
+}

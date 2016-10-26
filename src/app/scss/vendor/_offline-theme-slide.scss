@@ -1,0 +1,295 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+
+// mixins
+@mixin offline-keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin offline-animation($animation) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -ms-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+  -webkit-backface-visibility: hidden;
+}
+
+@mixin offline-transform($transform) {
+  transform: $transform;
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+}
+
+@mixin offline-preserve-3d {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+// keyframes
+@mixin keyframes-offline-fadein {
+  @include offline-keyframes("offline-fadein") {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin keyframes-offline-fadeout {
+  @include offline-keyframes("offline-fadeout") {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin keyframes-offline-fadeout-and-hide {
+  @include offline-keyframes("offline-fadeout-and-hide") {
+    0% {
+      opacity: 1;
+      display: block;
+    }
+
+    99% {
+      opacity: 0;
+      display: block;
+    }
+
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
+
+@mixin keyframes-offline-dropin {
+  @include offline-keyframes("offline-dropin") {
+    // We start at 0 first and, while hidden
+    // move to -800px, where the animation
+    // really begins. This was necessary because
+    // otherwise, when starting the animation
+    // at -800px, the browser scrolls up 800px
+    // to try to display this object positioned
+    // above the page.
+    // https://github.com/HubSpot/vex/issues/21
+    0% {
+      @include offline-transform(translateY(0));
+
+      opacity: 0;
+    }
+
+    1% {
+      @include offline-transform(translateY(-800px));
+
+      opacity: 0;
+    }
+
+    // Real animation begins here
+    2% {
+      @include offline-transform(translateY(-800px));
+
+      opacity: 1;
+    }
+
+    100% {
+      @include offline-transform(translateY(0));
+
+      opacity: 1;
+    }
+  }
+}
+
+@mixin keyframes-offline-dropout {
+  @include offline-keyframes("offline-dropout") {
+    0% {
+      @include offline-transform(translateY(0));
+    }
+
+    100% {
+      @include offline-transform(translateY(-800px));
+    }
+  }
+}
+
+@mixin keyframes-offline-rotation {
+  @include offline-keyframes("offline-rotation") {
+    0% {
+      @include offline-transform(rotate(0deg));
+    }
+
+    100% {
+      @include offline-transform(rotate(359deg));
+    }
+  }
+}
+
+// offline-theme-base
+.offline-ui, .offline-ui *, .offline-ui:before, .offline-ui:after, .offline-ui *:before, .offline-ui *:after {
+  @include box-sizing(border-box);
+}
+
+.offline-ui {
+  display: none;
+  position: fixed;
+  background: #fff;
+  z-index: 2000;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  .offline-ui-content:before {
+    display: inline;
+  }
+
+  .offline-ui-retry {
+    @include user-select(none);
+
+    display: none;
+
+    &:before {
+      display: inline;
+    }
+  }
+
+  &.offline-ui-up {
+    &.offline-ui-up-5s {
+      display: block;
+    }
+  }
+
+  &.offline-ui-down {
+    display: block;
+
+    &.offline-ui-waiting {
+      .offline-ui-retry {
+        display: block;
+      }
+    }
+
+    &.offline-ui-reconnect-failed-2s {
+      &.offline-ui-waiting .offline-ui-retry {
+        display: none;
+      }
+    }
+  }
+}
+
+$red: #ec8787;
+$green: #d6e9c6;
+$yellow: #f8ecad;
+
+$darkRed: #551313;
+$darkGreen: #468847;
+$darkYellow: #7c6d1f;
+
+@include keyframes-offline-dropin;
+
+@include keyframes-offline-dropout;
+
+@include keyframes-offline-rotation;
+
+.offline-ui {
+  @include border-radius(0 0 4px 4px);
+
+  font-family: "Helvetica Neue", sans-serif;
+  padding: 1em;
+  width: 38em;
+  max-width: 100%;
+  overflow: hidden;
+
+  @media (max-width: 38em) {
+    @include border-radius(0);
+  }
+
+  .offline-ui-retry {
+    position: absolute;
+    right: 3em;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    line-height: 3.5em;
+    height: 3.5em;
+    margin: auto;
+    padding: 0 1em;
+  }
+
+  &.offline-ui-up {
+    @include offline-animation(offline-dropout forwards 0.5s 2s);
+
+    background: $green;
+    color: $darkGreen;
+  }
+
+  &.offline-ui-down {
+    @include offline-animation(offline-dropin 0.5s);
+
+    background: $red;
+    color: $darkRed;
+
+    &.offline-ui-connecting, &.offline-ui-waiting {
+      background: $yellow;
+      color: $darkYellow;
+      padding-right: 3em;
+
+      &:after {
+        @include offline-animation(offline-rotation 0.7s linear infinite);
+
+        @include border-radius(50%);
+
+        content: " ";
+        display: block;
+        position: absolute;
+        right: 1em;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 1em;
+        width: 1em;
+        border: 2px solid rgba(0, 0, 0, 0);
+        border-top-color: $darkYellow;
+        border-left-color: $darkYellow;
+        opacity: 0.7;
+      }
+    }
+
+    &.offline-ui-waiting {
+      padding-right: 11em;
+
+      &.offline-ui-reconnect-failed-2s {
+        padding-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,181 @@
+body.food {
+  background: white url("/appassets/img/background-pattern-white.png") top center repeat;
+
+  .owl-carousel {
+    background: white;
+
+    .owl-nav {
+      margin: 0;
+
+      > div {
+        position: absolute;
+        background: none !important;
+        z-index: 999;
+        top: 0;
+        line-height: 1;
+        padding: rem-calc(11);
+        font-size: rem-calc(30);
+
+        &.owl-prev {
+          left: 0;
+        }
+
+        &.owl-next {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  .meals-block {
+    a, a h4 {
+      color: $soft-red;
+    }
+  }
+
+  .accordion {
+    .button {
+      @extend .small-fontsize-26;
+
+      font-family: $font-header-regular;
+      color: $dark-red !important;
+      border-color: $soft-red;
+
+      &:hover {
+        background: scale-color($soft-red, $lightness: 90%) !important;
+      }
+
+      &.checked {
+        background: $vapor !important;
+        color: $iron !important;
+      }
+
+      .fa {
+        margin-right: rem-calc(20);
+      }
+
+      .right {
+        @extend .small-fontsize-20;
+
+        font-family: $body-font-family;
+        font-weight: normal;
+        color: $iron;
+        text-transform: none !important;
+      }
+    }
+  }
+
+  .tab-lg {
+    dl.tabs {
+      @extend .small-padding-top-10;
+
+      @extend .medium-padding-top-30;
+
+      margin-top: rem-calc(10);
+      text-align: center;
+
+      dd {
+        display: inline-block;
+        margin: 0 -2px;
+        border-bottom: 3px solid $pink-light;
+        float: none;
+        opacity: 0.5;
+
+        a {
+          @extend .small-fontsize-24;
+
+          @extend .medium-fontsize-30;
+
+          color: $pink-light;
+          padding: rem-calc(8 20);
+          border-bottom: 3px solid transparent;
+
+          &:hover {
+            background: none;
+          }
+        }
+
+        &.active {
+          border-color: $soft-red;
+          opacity: 1;
+
+          a {
+            color: $soft-red;
+            border-color: $soft-red;
+          }
+        }
+      }
+    }
+
+    .tabs-content {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  body.food {
+    .accordion {
+      .content {
+        .media {
+          .ellipsis {
+            max-width: 25.6vw;
+          }
+        }
+      }
+    }
+
+    .tab-lg {
+      dl.tabs {
+        dd {
+          a {
+            padding: rem-calc(8 30);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$large-up} {
+  body.food {
+    .accordion {
+      .content {
+        .media {
+          .ellipsis {
+            max-width: 19rem;
+            min-width: 18.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$print} {
+  body.food {
+    .top-bar {
+      .name {
+        img {
+          display: none;
+
+          &.print-only {
+            @include printColorAdjust;
+          }
+        }
+      }
+    }
+
+    .columns {
+      width: 100%;
+    }
+
+    dl.tabs {
+      display: none;
+    }
+
+    h2, h3, h4 {
+      margin: rem-calc(20 0 10);
+    }
+  }
+}

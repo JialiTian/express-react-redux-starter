@@ -1,0 +1,150 @@
+body.workout-contents {
+  section#workout-strength {
+    .circuit-title {
+      width: 50%;
+    }
+
+    .tabs-content {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: $pink;
+    }
+
+    dl.tabs {
+      text-align: center;
+
+      dd {
+        display: inline-block;
+        margin: 0;
+        border-bottom: 2px solid $iron;
+        float: none;
+
+        &.active {
+          border-color: $pink;
+
+          a {
+            color: $pink;
+            border-color: $pink;
+          }
+        }
+
+        a {
+          font-size: 30px;
+          color: #d6d8da;
+          padding: 1rem;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+
+    .exercise {
+      font-family: $font-header-regular;
+      overflow: visible;
+
+      .exercise-block {
+        cursor: pointer;
+      }
+
+      .exercise-title {
+        font-size: rem-calc(22);
+        background-color: $pink;
+        color: white;
+        margin-bottom: 20px;
+        line-height: 2.2em;
+
+        .exercise-name {
+          font-family: $font-header-regular;
+          padding-left: 0.5em;
+          text-align: left;
+        }
+
+        .exercise-reps {
+          font-family: $font-header;
+          padding-right: 0.5em;
+          text-align: right;
+          vertical-align: middle;
+
+          .fa {
+            @include inline-block;
+          }
+
+          .exercise-count {
+            @include inline-block;
+
+            &.has-alternate {
+              margin-top: 1px;
+              line-height: 0.65em;
+              vertical-align: middle;
+            }
+
+            small {
+              font-size: rem-calc(16);
+              color: lighten($pink, 40%);
+            }
+          }
+        }
+      }
+    }
+
+    .workout-image {
+      img {
+        text-align: center;
+        max-height: 150px;
+      }
+    }
+
+    .exercise-equipment {
+      @include border-radius(4px);
+
+      display: inline-block;
+      font-family: $body-font-family;
+      font-size: rem-calc(20);
+      color: #3dc3d0;
+      padding: 0 0.5rem;
+      border: 2px solid #3dc3d0;
+    }
+
+    .columns .ng-enter {
+      @include animation(none);
+    }
+  }
+}
+
+@media #{$medium-up} {
+  body.workout-contents {
+    section#workout-strength {
+      h2 {
+        padding: 0 !important;
+      }
+
+      dl.tabs {
+        padding: 0px 20%;
+        margin-bottom: 1vh !important;
+
+        dd {
+          a {}
+        }
+      }
+
+      .table-cell {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media #{$medium-only} {
+  body.workout-contents {
+    section#workout-strength {
+      .medium-6 {
+        @include mediumRowCollapse;
+      }
+    }
+  }
+}

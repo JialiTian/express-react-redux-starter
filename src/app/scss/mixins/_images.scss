@@ -1,0 +1,27 @@
+.img-circle {
+  border-radius: 50%;
+}
+
+img {
+  max-width: 100%;
+
+  &[style*="float:left"] {
+    margin: 0 $column-gutter ($column-gutter / 2) 0;
+  }
+
+  &[style*="float:right"] {
+    margin: 0 0 ($column-gutter / 2) $column-gutter;
+  }
+
+  &.img-expand {
+    width: 100%;
+    height: auto;
+  }
+
+  &.img-featured {
+    @include border-radius(100%);
+
+    width: 45vw;
+    max-width: rem-calc(200);
+  }
+}

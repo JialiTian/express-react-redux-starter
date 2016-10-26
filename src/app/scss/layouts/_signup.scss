@@ -1,0 +1,40 @@
+body.signup {
+  .overlay-custom {
+    .accordion {
+      &, .scrollable .active {
+        box-shadow: none;
+      }
+
+      a.ng-binding, .button.expand, .form-group, .content > input {
+        border-color: transparent;
+      }
+    }
+  }
+
+  #workout-week {
+    .accordion {
+      a:first-of-type {
+        @include border-radius(4px);
+
+        margin-bottom: 1px;
+      }
+
+      .content {
+        overflow: scroll;
+        height: 25vh;
+
+        @include border-radius(4px);
+
+        a {
+          border-top: 1px solid $light-blue;
+
+          &:first-of-type {
+            border-top: none;
+
+            @include border-radius(0px);
+          }
+        }
+      }
+    }
+  }
+}

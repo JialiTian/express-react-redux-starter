@@ -1,0 +1,251 @@
+.overlay-custom {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 1000;
+  min-height: 100%;
+  height: 100vh;
+
+  a:last-of-type {
+    margin-bottom: 0px;
+  }
+
+  &.what-is {
+    ul {
+      text-align: left;
+
+      li {
+        list-style: disc;
+      }
+    }
+
+    h2 {
+      margin-top: 4vh;
+      text-align: center;
+    }
+
+    .article {
+      text-align: left;
+      overflow: auto;
+      max-height: 90vh;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &.workout {
+    #sweat-trophy {
+      padding-top: rem-calc(20);
+      margin: rem-calc(30) auto;
+      max-width: rem-calc(220);
+    }
+
+    input, textarea {
+      @extend p;
+
+      @include background(rgba(255, 255, 255, 0.2));
+
+      border-radius: rem-calc(5);
+      color: white;
+      padding: 10px !important;
+      border: 0;
+      outline: 0;
+      width: 100%;
+    }
+
+    &.complete {
+      background-size: cover;
+    }
+
+    &.resistance {
+      background-image: url("/appassets/img/background-workout-resistance.png");
+    }
+
+    &.recovery, &.rehabilitation {
+      background-image: url("/appassets/img/background-workout-recovery.png");
+    }
+
+    &.cardio, &.liss, &.hiit {
+      background-image: url("/appassets/img/background-workout-cardio.png");
+    }
+
+    &.challenge {
+      background-image: url("/appassets/img/background-workout-challenge.png");
+    }
+  }
+
+  &.white {
+    background: white;
+    color: $info-color;
+
+    &.patterned {
+      background: white url("/appassets/img/background-overlay-white.png") top repeat-x;
+    }
+  }
+
+  &.light {
+    background: rgb(252, 254, 255);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(252, 254, 255, 1) 0%, rgba(225, 237, 244, 0.98) 80%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 80%, color-stop(0%, rgba(252, 254, 255, 1)), color-stop(80%, rgba(225, 237, 244, 0.98)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(252, 254, 255, 1) 0%, rgba(225, 237, 244, 0.98) 80%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(252, 254, 255, 1) 0%, rgba(225, 237, 244, 0.98) 80%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(252, 254, 255, 1) 0%, rgba(225, 237, 244, 0.98) 80%);
+    background: radial-gradient(ellipse at center, rgba(252, 254, 255, 1) 0%, rgba(225, 237, 244, 0.98) 80%);
+    color: $info-color;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfeff', endColorstr='#e1edf4', GradientType=1 );
+  }
+
+  &.black {
+    @include background(rgba(0, 0, 0, 0.9));
+
+    color: white;
+  }
+
+  &.purple-pink {
+    @include background(linear-gradient(204deg, rgba(33, 178, 252, 0.98) 0%, rgba(242, 98, 197, 0.98) 60%));
+
+    color: white;
+  }
+
+  &.light-blue {
+    @include background(linear-gradient(204deg, rgba(74, 219, 255, 0.98) 0%, rgba(121, 172, 240, 0.98) 100%));
+
+    color: white;
+  }
+
+  &.blue,
+  &.resistance.circuit-2 {
+    @include background(linear-gradient(204deg, rgba(74, 219, 255, 0.98) 0%, rgba(121, 172, 240, 0.98) 100%));
+
+    color: white;
+  }
+
+  &.orange,
+  &.challenge {
+    @include background(linear-gradient(204deg, rgba(254, 90, 82, 0.98) 0%, rgba(253, 150, 99, 0.98) 100%));
+
+    color: white;
+  }
+
+  &.pink,
+  &.hiit.onwork,
+  &.resistance {
+    @include background(linear-gradient(204deg, rgba(249, 40, 134, 0.98) 0%, rgba(254, 156, 151, 0.98) 100%));
+
+    color: white;
+
+    footer.sticky {
+      @include background(linear-gradient(rgba(246, 153, 151, 0) 0%, rgba(246, 153, 151, 0.98) 50%));
+    }
+  }
+
+  &.dark-blue,
+  &.rest,
+  &.rehabilitation {
+    @include background(linear-gradient(204deg, rgba(123, 123, 255, 0.98) 0%, rgba(50, 131, 252, 0.98) 100%));
+
+    color: white;
+  }
+
+  &.green,
+  &.hiit,
+  &.liss,
+  &.cardio,
+  &.cooldown {
+    @include background(linear-gradient(204deg, rgba(120, 218, 201, 0.98) 0%, rgba(55, 193, 209, 0.98) 100%));
+
+    color: white;
+  }
+
+  &.soft-red {
+    background: rgba(246, 128, 132, 0.95);
+    color: white;
+  }
+
+  &.ng-enter {
+    @include animation(none);
+  }
+
+  .actions {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: rem-calc(20);
+
+    &.bottom {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  .owl-carousel {
+    .owl-item {
+      display: inline-block;
+      margin: 0;
+      float: none;
+      vertical-align: top;
+    }
+  }
+
+  &.workout {
+    .top-button {
+      border-bottom-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .middle {
+      top: calc(50% - 50px);
+    }
+  }
+}
+
+.tour-content-wrapper {
+  position: relative;
+  z-index: 9999;
+}
+
+.tour-tip:after {
+  display: block;
+  content: " ";
+  position: fixed;
+  left: -100%;
+  right: -100%;
+  top: -100%;
+  bottom: -100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9998;
+}
+
+@media #{$medium-up} {
+  .overlay-custom {
+    .actions {
+      padding: rem-calc(30);
+    }
+
+    &.what-is {
+      .article {
+        max-height: 84vh;
+        margin-bottom: 4vh;
+      }
+
+      a:last-of-type {
+        margin-bottom: 4vh;
+      }
+    }
+  }
+}
+
+@media #{$small-only} {
+  .overlay-custom {
+    .middle-small {
+      padding: rem-calc(20);
+      padding-top: $topbar-height;
+    }
+  }
+}

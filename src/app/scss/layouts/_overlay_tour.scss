@@ -1,0 +1,141 @@
+.overlay-tour {
+  &.white {
+    // Fix buttons bug in owl caroursal
+    .owl-item .button.hollow {
+      background: white;
+    }
+  }
+
+  .button.small {
+    font-family: $body-font-family;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: rem-calc(20);
+  }
+
+  .owl-carousel {
+    .item [class*='table-block'] {
+      .iphone-mockup {
+        padding: rem-calc(40 20);
+
+        img {
+          width: auto;
+          height: rem-calc(605);
+        }
+      }
+    }
+
+    .owl-controls {
+      .owl-dots {
+        position: absolute;
+        top: rem-calc(-30);
+        left: 0;
+        right: 0;
+
+        .owl-dot {
+          &:hover span {
+            border-color: $pink;
+          }
+
+          &.active span {
+            border-color: $pink-light;
+            background: $pink-light;
+          }
+
+          span {
+            border-color: $pink-light;
+            background: transparent;
+          }
+        }
+      }
+
+      .owl-nav {
+        margin: 0;
+
+        .owl-prev, .owl-next {
+          position: absolute;
+          z-index: 102;
+          bottom: rem-calc(300);
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          line-height: 50px;
+          margin: rem-calc(-20) 0 0;
+          font-size: 40px;
+          background: none;
+          color: $pink;
+          border-radius: 100%;
+          border: 2px solid $pink;
+
+          &.owl-prev {
+            left: 30%;
+            padding: 2px 4px 0 0;
+          }
+
+          &.owl-next {
+            right: 30%;
+            padding: 2px 0 0 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$small-only} {
+  .overlay-tour {
+    .owl-carousel {
+      .item [class*='table-block'] {
+        padding-bottom: rem-calc(380);
+
+        .button.small {
+          display: none;
+        }
+
+        .iphone-mockup {
+          @include top;
+
+          top: rem-calc(280);
+
+          img {
+            height: rem-calc(454);
+          }
+        }
+      }
+
+      .owl-controls {
+        .owl-dots {
+          top: rem-calc(-40);
+        }
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .overlay-tour {
+    .owl-carousel {
+      .owl-controls {
+        .owl-nav {
+          .owl-prev, .owl-next {
+            position: fixed;
+            top: 50%;
+            bottom: auto;
+
+            &.owl-prev {
+              left: rem-calc(30);
+            }
+
+            &.owl-next {
+              right: rem-calc(30);
+            }
+          }
+        }
+
+        .owl-dots {
+          top: rem-calc(-20);
+        }
+      }
+    }
+  }
+}

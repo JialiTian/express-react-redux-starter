@@ -1,0 +1,47 @@
+.circuit-2 {
+  .text-pink, .text-resistance {
+    color: $blue !important;
+  }
+
+  .text-pink-light {
+    color: lighten($blue, 20%) !important;
+  }
+
+  .button.pink,
+  .button.pink:hover {
+    @extend .button.blue;
+  }
+
+  .exercise-title {
+    background: $blue !important;
+  }
+
+  .exercise-reps .exercise-count small {
+    color: lighten($blue, 40%) !important;
+  }
+
+  dd {
+    &.active {
+      border-color: $blue !important;
+
+      a {
+        color: $blue !important;
+        border-color: $blue !important;
+      }
+    }
+  }
+
+  h2 {
+    color: $blue !important;
+  }
+}
+
+.circuit-2.overlay-custom,
+.circuit-2 .overlay-custom {
+  .owl-controls {
+    .owl-dots .owl-dot.active span {
+      border-color: $blue;
+      background-color: $blue;
+    }
+  }
+}

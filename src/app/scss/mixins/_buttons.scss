@@ -1,0 +1,132 @@
+.button {
+  // Set default button color to blue
+  background-color: $blue;
+  border: 2px solid $blue;
+  color: white;
+  font-family: $font-header;
+  padding-top: $button-med - rem-calc(2);
+  padding-bottom: $button-med - rem-calc(2);
+
+  &.hollow {
+    background-color: transparent;
+    color: $blue;
+  }
+
+  &.radius {
+    border-radius: 6px;
+  }
+
+  &.round {
+    @extend .transit;
+
+    @extend .hover-scale;
+
+    .fa {
+      &.right {
+        position: absolute;
+        margin-top: 2px;
+        right: rem-calc(20);
+      }
+    }
+  }
+
+  &.small {
+    padding-top: $button-sml - rem-calc(2);
+    padding-bottom: $button-sml - rem-calc(2);
+  }
+
+  &.top-button {
+    @include box-shadow(0 15px 50px rgba(0, 0, 0, 0.02));
+
+    font-size: rem-calc(18);
+    color: $pink-light;
+    border: $pink-light solid;
+    border-width: 0px 0px 1px 0px;
+    line-height: 2.2rem;
+    width: 100%;
+    margin-bottom: rem-calc(10);
+
+    &:hover {
+      @include box-shadow(0 15px 50px rgba(0, 0, 0, 0.05));
+
+      color: $pink;
+    }
+  }
+}
+
+// Make a button of each color
+@each $name, $color in $color-map {
+  .button {
+    &.#{$name} {
+      background-color: $color;
+      border-color: $color;
+
+      &:hover {
+        background-color: darken($color, 10%);
+        border-color: darken($color, 10%);
+      }
+
+      &.hollow {
+        &.tiny {
+          border-width: 1px;
+        }
+
+        &, &.disabled, &[disabled] {
+          &, &:hover, &:focus {
+            background-color: transparent;
+            border-color: $color;
+            color: $color;
+          }
+        }
+      }
+    }
+  }
+}
+@mixin reduceButton($size, $offset) {
+    padding-top: $size - rem-calc($offset);
+    padding-bottom: $size - rem-calc($offset - 1);
+    padding-left: $size * 2 - rem-calc($offset);
+    padding-right: $size * 2 - rem-calc($offset);
+  }
+// Reduce padding of buttons on small screen
+@media #{$small-only} {
+  .button {
+    @include reduceButton($button-med, 6);
+
+    &.tiny {
+      @include reduceButton($button-tny, 6);
+    }
+
+    &.small {
+      @include reduceButton($button-sml, 6);
+    }
+
+    &.large {
+      @include reduceButton($button-lrg, 8);
+    }
+
+    &.hollow {
+      @include reduceButton($button-med, 8);
+
+      &.tiny {
+        @include reduceButton($button-tny, 8);
+      }
+
+      &.small {
+        @include reduceButton($button-sml, 8);
+      }
+
+      &.large {
+        @include reduceButton($button-lrg, 8);
+      }
+    }
+
+    &.small-sticky {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      margin: 0;
+      border-radius: 0;
+    }
+  }
+}

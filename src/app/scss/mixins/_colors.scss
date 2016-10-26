@@ -1,0 +1,42 @@
+// Kayla Swatch
+$blue: #1a9ede;
+$dark-blue: #3d8bd8;
+$light-blue: #79aeee;
+$pink: #f8006f;
+$pink-hover: darken($pink, 10%);
+$pink-light: #ed718b;
+$green: #40c199;
+$cooldown: #37c1d1;
+$orange: #fb8855;
+$facebook: #505cb8;
+
+// Foudation
+$primary-color: $dark-blue;
+$secondary-color: #ececec;
+$alert-color: $pink;
+$success-color: $green;
+$warning-color: $orange;
+$info-color: $blue;
+$tertiary-color: #616973;
+$white: white;
+$oil: #333;
+$monsoon: #777;
+
+// Foundation Components
+$accordion-navigation-bg-color: #fbfbfb;
+
+// Others
+$border-color: #e9e9e9;
+$border-pink: #f7d0e2;
+$font-highlight-color: #e32a29;
+$dark-gray: #1d2248;
+$gray: #777;
+$gray-light: #a7a7a7;
+$gray-lighter: #e7e7eb;
+$alert-light: #fff2fb;
+$soft-red: #f68084;
+$dark-red: #cbb0b0;
+
+// Color List
+$color-list: "pink" "blue" "dark-blue" "facebook" "green" "cooldown" "pink-light" "white" "oil" "secondary" "gray" "gray-light" "gray-lighter" "soft-red" "monsoon", "orange" "tertiary";
+$color-map: ("pink": $pink, "blue": $blue, "dark-blue": $dark-blue, "facebook": $facebook, "green": $green, "cooldown": $cooldown, "pink-light": $pink-light, "white": $white, "oil": $oil, "monsoon": $monsoon, "secondary": $secondary-color, "gray": $gray, "gray-light": $gray-light, "gray-lighter": $gray-lighter, "soft-red": $soft-red, "orange": $orange, "tertiary": $tertiary-color);

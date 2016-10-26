@@ -1,0 +1,180 @@
+@import "fonts";
+
+$size-list: 0 5 10 15 20 25 30 33 40 50 60 70 75 80 90 100 120 150 200 250 300;
+$font-list: 10 12 14 16 18 20 22 24 26 28 30 35 40 45 50 60 70 80 90 100 110 120 150;
+$align-list: left center right;
+$sides-list: top bottom left right;
+$screen-list: small medium large;
+$breakpoint-list: "#{$small-up}" "#{$medium-up}" "#{$large-up}" "#{$xlarge-up}";
+
+// ----------------------
+// These are our items, will think of a better name one day soon
+// ----------------------
+
+@mixin items {
+  .#{$screen}-table-block {
+    display: table;
+    position: static;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    table-layout: fixed;
+
+    & > .table-cell {
+      display: table-cell;
+      padding: $column-gutter / 2;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  // Auto width
+  .#{$screen}-width-auto {
+    width: auto !important;
+  }
+
+  // Margin Auto
+  .#{$screen}-margin-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Margin Reset
+  .#{$screen}-margin-0 {
+    margin: 0 !important;
+  }
+
+  .#{$screen}-height-100 {
+    height: 100vh !important;
+  }
+
+  @each $i in $size-list {
+    // Width Percentage
+    .#{$screen}-width-#{$i} {
+      width: (1% * $i) !important;
+    }
+
+    // margin
+    .#{$screen}-margin-#{$i} {
+      margin: (1px * $i) !important;
+    }
+
+    // Padding
+    .#{$screen}-padding-#{$i} {
+      padding: (1px * $i) !important;
+    }
+
+    // Opacity
+    .#{$screen}-opacity-#{$i} {
+      opacity: $i / 100;
+    }
+
+    // Build for sides
+    @each $side in $sides-list {
+      // Padding Top Bottom
+      .#{$screen}-padding-#{$side}-#{$i} {
+        padding-#{$side}: (1px * $i) !important;
+      }
+
+      // Margin Top Bottom
+      .#{$screen}-margin-#{$side}-#{$i} {
+        margin-#{$side}: (1px * $i) !important;
+      }
+    }
+  }
+
+  // Font Sizes
+  @each $fs in $font-list {
+    .#{$screen}-fontsize-#{$fs} {
+      font-size: rem-calc(1 * $fs) !important;
+    }
+  }
+
+  @each $ta in $align-list {
+    // Text Align
+    .#{$screen}-text-#{$ta} {
+      text-align: $ta !important;
+    }
+
+    // Float
+    .#{$screen}-float-#{$ta} {
+      float: $ta !important;
+    }
+  }
+}
+
+// ----------------------
+// Ok let's build these items in each media CLASS
+// TODO: Turn into mixin
+// ----------------------
+
+@each $i in $screen-list {
+  @if $i == "small" {
+    @media #{$small-up} {
+      $screen: $i;
+
+      @include items;
+    }
+  }
+
+  @if $i == "medium" {
+    @media #{$medium-up} {
+      $screen: $i;
+
+      @include items;
+    }
+  }
+
+  @if $i == "large" {
+    @media #{$large-up} {
+      $screen: $i;
+
+      @include items;
+    }
+  }
+}
+
+// Vertically middles and element
+@mixin middle {
+  @include transform(translate(-50%, -50%));
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+}
+
+@mixin bottom {
+  @include transform(translate(-50%, 0));
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+}
+
+@mixin top {
+  @include transform(translate(-50%, 0));
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+}
+
+// Collapses Rows to save horizontal space on tablet
+@mixin mediumRowCollapse {
+  &:first-of-type {
+    padding-right: 5px;
+  }
+
+  &:last-of-type {
+    padding-left: 5px;
+  }
+}
+
+@media #{$medium-up} {
+  .middle-medium {
+    @include middle;
+  }
+}

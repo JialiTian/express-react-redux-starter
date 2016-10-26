@@ -1,0 +1,213 @@
+body.education {
+  // Prevent multiple animations on fixed position buttons
+  #main {
+    *.ng-enter {
+      @include animation(none);
+    }
+
+    section.featured {
+      background: $blue;
+
+      .button {
+        max-width: 27rem;
+        margin-bottom: 0;
+
+        .fa {
+          margin-left: 1rem;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  #education-show {
+    .side-nav {
+      li {
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+
+        &.active {
+          & > a {
+            border-left-color: $info-color;
+            color: $info-color;
+          }
+
+          .sub-side-nav {
+            display: block;
+          }
+        }
+
+        a {
+          display: block;
+          color: $tertiary-color;
+          font-weight: bold;
+          padding: rem-calc(2 12);
+          border-left: 3px solid transparent;
+          background: none;
+
+          &:hover {
+            color: $info-color;
+          }
+        }
+      }
+
+      .sub-side-nav {
+        display: none;
+        padding: 0.5rem 0 0 0.5rem;
+
+        a {
+          padding: rem-calc(1 10);
+          font-weight: normal;
+        }
+      }
+    }
+
+    article {
+      .title {
+        color: $tertiary-color;
+        font-family: $body-font-family;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .content {
+        ul li {
+          list-style: disc;
+        }
+
+        hr {
+          margin: ($column-gutter * 1.5) 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          font-family: $body-font-family;
+          font-weight: bold;
+          margin: 0.5rem 0 1.5rem;
+          line-height: 1;
+          color: $tertiary-color;
+        }
+
+        h1 {
+          font-size: rem-calc(33);
+        }
+
+        h2 {
+          font-size: rem-calc(30);
+        }
+
+        h3 {
+          font-size: rem-calc(27);
+        }
+
+        h4 {
+          font-size: rem-calc(24);
+        }
+
+        h5 {
+          font-size: rem-calc(21);
+        }
+
+        h6 {
+          font-size: rem-calc(18);
+        }
+
+        table {
+          width: 100%;
+
+          p, ul, li {
+            font-size: rem-calc(14);
+            font-weight: 400;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #education-nav {
+    .middle-wrapper {
+      position: relative;
+      min-height: 85vh;
+    }
+
+    .button-bar {
+      a {
+        @include inline-block;
+
+        padding: 0 rem-calc(3);
+      }
+    }
+
+    li {
+      a {
+        padding-left: rem-calc(10);
+        padding-right: rem-calc(10);
+        font-family: $body-font-family;
+        font-weight: bold;
+        text-align: left;
+        font-size: rem-calc(16);
+        margin-bottom: 0;
+
+        .fa {
+          font-size: rem-calc(22);
+        }
+
+        .fa-angle-right {
+          width: rem-calc(13);
+        }
+      }
+    }
+
+    ul.no-bullet li ul {
+      margin-left: 0;
+    }
+  }
+
+  .button-bar-sticky {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    @include border-radius(100%);
+
+    position: absolute;
+    right: 0;
+    bottom: rem-calc(-30);
+
+    &.fixed {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      top: inherit;
+    }
+
+    .button {
+      font-size: rem-calc(12);
+      font-family: $body-font-family;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  body.education {
+    #education-show {
+      article {
+        .content {
+          padding-right: 2rem;
+
+          table {
+            p, ul, li {
+              font-size: rem-calc(12);
+            }
+          }
+        }
+      }
+    }
+  }
+}
